@@ -11,8 +11,8 @@
 
     const bindForElementChange = () => {
         ["DOMNodeInserted", "DOMNodeRemoved", "DOMAttributeNameChanged"].forEach(eventName => {
-            document.addEventListener(eventName, () => {
-                if (targets.ids.includes(targetList) && targets[targetList].type === 'id') {
+            document.addEventListener(eventName, (e) => {
+                if (targetList.includes(e.target.id) && targets[targetList].type === 'id') {
                     const event = new Event('gh' + ":" + targets[targetList].eventName);
                     document.dispatchEvent(event);
                 }
