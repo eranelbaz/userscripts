@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.3
+// @version      0.3.4
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
