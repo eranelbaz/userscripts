@@ -24,4 +24,5 @@
     }
 
     document.addEventListener("ghmo:comments", init);
+    document.addEventListener("ghmo:comments", () => setTimeout(init, 500));
 })();
