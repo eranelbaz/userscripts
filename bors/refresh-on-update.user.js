@@ -7,7 +7,7 @@
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
+// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/fix-bors/helpers.js
 // @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
 // @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
 // ==/UserScript==
