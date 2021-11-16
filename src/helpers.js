@@ -1,16 +1,20 @@
 (() => {
     "use strict";
     const targets = {
-        classNames: ['js-merge-message-container']
-    }
+        'partial-pull-merging': {
+            type: 'id',
+            eventName: 'actions'
+        }
+    };
+    const targetList = Object.keys(targets);
 
 
-    const bindForElementChange = (query, func) => {
+    const bindForElementChange = () => {
         ["DOMNodeInserted", "DOMNodeRemoved", "DOMAttributeNameChanged"].forEach(eventName => {
-            document.addEventListener(eventName, function (e) {
-
-                if (e.target.classList && Array.from(e.target.classList).some(targetClass => targets.classNames.includes(targetClass))) {
-                    func();
+            document.addEventListener(eventName, () => {
+                if (targets.ids.includes(targetList) && targets[targetList].type === 'id') {
+                    const event = new Event('gh' + ":" + targets[targetList].eventName);
+                    document.dispatchEvent(event);
                 }
 
             }, false);

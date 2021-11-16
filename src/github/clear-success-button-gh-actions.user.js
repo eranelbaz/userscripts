@@ -8,7 +8,7 @@
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-clear-button/src/helpers.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // ==/UserScript==
@@ -62,9 +62,9 @@
             }
         }
     };
-
+    init();
     document.addEventListener("ghmo:container", init);
-    document.addEventListener("ghmo:merge", () => {
-        console.log('merge');
+    document.addEventListener("gh:actions", () => {
+        init();
     });
 })();
