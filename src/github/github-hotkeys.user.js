@@ -40,9 +40,11 @@
             }
         };
     }
+    document.addEventListener("ghmo:container", () => {
+        bindPrTabs();
+        bindPullRequests();
+    });
 
-    bindPrTabs();
-    bindPullRequests();
     bindCopyBranchName();
 })
 ();
