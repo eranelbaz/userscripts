@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide events in github (refine github)
 // @namespace    github
-// @version      0.3
+// @version      0.3.1
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
