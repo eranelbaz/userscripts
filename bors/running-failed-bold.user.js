@@ -6,15 +6,18 @@
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
+// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
+// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
+// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
 // ==/UserScript==
 
 (function () {
     'use strict';
-    setInterval(() => {
-        if (location.href.includes('https://bors-env0.herokuapp.com/batches')) {
+    const init = () => {
+        if (location.href.includes('batches')) {
             Array.from(document.querySelectorAll('span')).forEach(el => {
                 if (el.textContent.includes('Running') || el.textContent.includes('Failed')) {
-                    var wrapper = document.createElement('b');
+                    const wrapper = document.createElement('b');
                     el.parentNode.insertBefore(wrapper, el);
                     wrapper.appendChild(el);
                 }
@@ -23,11 +26,12 @@
 
             Array.from(document.querySelectorAll('a')).forEach(el => {
                 if (el.textContent.includes('Failed') || el.textContent.includes('Running')) {
-                    var wrapper = document.createElement('b');
+                    const wrapper = document.createElement('b');
                     el.parentNode.insertBefore(wrapper, el);
                     wrapper.appendChild(el);
                 }
             });
         }
-    }, 500);
+    };
+    bindOnLoad(init);
 })();
