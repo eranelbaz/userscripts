@@ -57,7 +57,6 @@
             if (targets[selector].count > 0) {
                 // event => "ghmo:container", "ghmo:comments"
                 const event = new Event(prefix + ":" + targets[selector].name);
-                console.log('firing', event);
                 document.dispatchEvent(event);
             }
             targets[selector].count = 0;

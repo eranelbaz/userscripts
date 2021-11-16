@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Add clear successful button on gh actions
 // @namespace    github
-// @version      0.3.4
+// @version      0.3.3
 // @description  Add clear successful button on gh actions
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // ==/UserScript==
@@ -61,6 +62,9 @@
             }
         }
     };
-
+    init();
     document.addEventListener("ghmo:container", init);
+    document.addEventListener("gh:actions", () => {
+        init();
+    });
 })();
