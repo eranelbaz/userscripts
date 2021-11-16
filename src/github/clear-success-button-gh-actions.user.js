@@ -63,5 +63,6 @@
     };
 
     bindOnLoad(init);
-    bindForElementChange('partial-pull-merging', init);
+    bindOnElement('body', init)
+    bindOnElement('partial-pull-merging', init);
 })();

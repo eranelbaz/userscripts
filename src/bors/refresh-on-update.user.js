@@ -22,5 +22,5 @@
             }
         }
     }
-    bindForElementChange('alert', init);
+    bindOnElement('alert', init);
 })();

@@ -24,5 +24,5 @@
     }
 
     bindOnLoad(init);
-    bindForElementChange('TimelineItem-badge', init);
+    bindOnElement('TimelineItem-badge', init);
 })();

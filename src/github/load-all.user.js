@@ -6,10 +6,12 @@
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/helpers.js
-// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/load-all.user.js
-// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/load-all.user.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/helpers.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutation.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/github/load-all.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/github/load-all.user.js
 // ==/UserScript==
+
 (function () {
     'use strict';
 
@@ -47,6 +49,8 @@
         }
     }
 
-    bindOnLoad(init);
-    bindForElementChange('gh-header-title', init)
+
+    init();
+    $(document).on('ghmo:comments', init);
+
 })();
