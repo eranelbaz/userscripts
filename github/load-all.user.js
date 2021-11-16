@@ -48,5 +48,5 @@
     }
 
     bindOnLoad(init);
-
+    bindForElementChange('gh-header-title', init)
 })();
