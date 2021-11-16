@@ -10,7 +10,7 @@ const bindForElementChange = (query, func) => {
         document.addEventListener(eventName, function (e) {
             if(e.target.id === query) {
                 func();
-            } else if(e.target.innerHTML.includes(query)) {
+            } else if(e.target.textContent.includes(query)) {
                 func();
             }
         }, false);
