@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Set Github hotkeys
 // @namespace    github
-// @version      0.3.3
+// @version      0.3.4
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
