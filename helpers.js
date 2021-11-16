@@ -10,9 +10,11 @@ const bindOnLoad = (func) => {
 const bindForElementChange = (query, func) => {
     ["DOMNodeInserted", "DOMNodeRemoved", "DOMAttributeNameChanged"].forEach(eventName => {
         document.addEventListener(eventName, function (e) {
-            if(e.target.id === query) {
+            if (e.target.id === query) {
                 func();
-            } else if(e.target.textContent.includes(query)) {
+            } else if (e.target.textContent.includes(query)) {
+                func();
+            } else if (e.target.classList && Array.from(e.target.classList).includes(query)) {
                 func();
             }
         }, false);
