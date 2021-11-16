@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.2
+// @version      0.3.3
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
@@ -17,9 +17,11 @@
     const init = () => {
         const trelloLink = Array.from(document.getElementsByTagName('a')).find(el => el.href.includes('trello'));
         const prTitle = document.getElementsByClassName('gh-header-title')[0];
-        if (trelloLink) {
+        const isElementAlreadyExists = document.querySelector('#trello-link');
+        if (trelloLink && !isElementAlreadyExists) {
             var titleLink = document.createElement('a');
             titleLink.href = trelloLink.href;
+            titleLink.id = 'trello-link';
             prTitle.appendChild(titleLink);
             titleLink.text = 'Trello';
         }
