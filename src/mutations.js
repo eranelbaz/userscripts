@@ -15,10 +15,6 @@
             // pjax container (covers general, repo & gists)
             // .news = newsfeed layout
             // .repository-content = file code (code folding)
-            ".js-pull-discussion-timeline": {
-                count: 0,
-                name: "pr"
-            },
             "[data-pjax-container], .news, .repository-content": {
                 count: 0,
                 name: "container"
@@ -59,10 +55,9 @@
     function fireEvents() {
         list.forEach(selector => {
             if (targets[selector].count > 0) {
-
                 // event => "ghmo:container", "ghmo:comments"
                 const event = new Event(prefix + ":" + targets[selector].name);
-                console.log('asked to fire', event);
+                console.log('firing', event);
                 document.dispatchEvent(event);
             }
             targets[selector].count = 0;
@@ -102,7 +97,6 @@
                         }
                     }
                     timer = setTimeout(() => {
-                        console.log('asked to fire');
                         fireEvents();
                     }, debounceInterval);
                 }

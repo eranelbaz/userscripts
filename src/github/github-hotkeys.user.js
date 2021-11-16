@@ -7,7 +7,6 @@
 // @match        https://github.com/*
 // @icon         https://www.google.com/s2/favicons?domain=github.com
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
 // @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/github-hotkeys.user.js
 // @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/github-hotkeys.user.js
 // ==/UserScript==
@@ -42,11 +41,8 @@
         };
     }
 
-    const init = () => {
-        bindPrTabs();
-        bindPullRequests();
-        bindCopyBranchName();
-    }
-    bindOnLoad(init);
+    bindPrTabs();
+    bindPullRequests();
+    bindCopyBranchName();
 })
 ();

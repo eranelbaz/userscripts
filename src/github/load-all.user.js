@@ -6,25 +6,13 @@
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/helpers.js
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutation.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/github/load-all.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/github/load-all.user.js
 // ==/UserScript==
 
 (function () {
     'use strict';
-
-    const trelloQuickLink = () => {
-        const trelloLink = Array.from(document.getElementsByTagName('a')).find(el => el.href.includes('trello'));
-        const prTitle = document.getElementsByClassName('gh-header-title')[0];
-        if (trelloLink) {
-            var titleLink = document.createElement('a');
-            titleLink.href = trelloLink.href;
-            prTitle.appendChild(titleLink);
-            titleLink.text = 'Trello';
-        }
-    }
 
     const runLogic = (interval) => {
         var items = document.getElementsByClassName('ajax-pagination-btn');
@@ -33,24 +21,18 @@
         }
         if (items.length === 0) {
             clearInterval(interval);
-            trelloQuickLink();
         }
 
     }
 
     let logicInterval;
     const init = () => {
-        if (location.href.includes('pull')) {
-            if (!logicInterval) {
-                logicInterval = setInterval(() => runLogic(logicInterval), 2000);
-            }
-        } else {
-            clearInterval(logicInterval);
-        }
+        setInterval(() => runLogic(logicInterval), 2000);
     }
 
 
     init();
-    $(document).on('ghmo:comments', init);
-
+    document.addEventListener("ghmo:comments", () => {
+        setTimeout(init, 500)
+    });
 })();
