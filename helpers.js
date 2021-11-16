@@ -5,12 +5,14 @@ const bindOnLoad = (func) => {
     func();
 }
 
-const bindForElementChange = (queryString, func) => {
+const bindForElementChange = (query, func) => {
     ["DOMNodeInserted", "DOMNodeRemoved", "DOMAttributeNameChanged"].forEach(eventName => {
         document.addEventListener(eventName, function (e) {
-            if(e.target.matches(queryString))
+            if(e.target.id === query) {
                 func();
-
+            } else if(e.target.innerHTML.includes(query)) {
+                func();
+            }
         }, false);
     });
 }

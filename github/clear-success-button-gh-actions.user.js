@@ -63,5 +63,5 @@
     };
 
     bindOnLoad(init);
-    bindForElementChange('.js-merge-message-container', init);
+    bindForElementChange('partial-pull-merging', init);
 })();
