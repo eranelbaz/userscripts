@@ -6,8 +6,8 @@
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
-// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
-// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/running-failed-bold.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/running-failed-bold.user.js
 // ==/UserScript==
 
 (function () {
