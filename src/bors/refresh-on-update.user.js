@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Refresh bors on update
 // @namespace    bors
-// @version      0.3.4
+// @version      0.3.5
 // @description  try to take over the world!
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
@@ -22,5 +22,5 @@
             }
         }
     }
-    $('alert').bind('change', init);
+    document.addEventListener("bors:alert", init);
 })();

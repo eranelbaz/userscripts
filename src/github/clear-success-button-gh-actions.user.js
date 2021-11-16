@@ -13,14 +13,14 @@
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
     const clear = (className) => {
         let items = document.getElementsByClassName('merge-status-item');
         var removed = false;
         for (let item of items) {
             let icon = item.querySelector(className);
-            if(icon) {
+            if (icon) {
                 item.remove();
                 removed = true;
             }
@@ -42,29 +42,28 @@
                 clearSuccess = clear('.color-text-success');
                 clearNeutral = clear('.neutral-check');
             }
-            while(clearSuccess || clearNeutral)
+            while (clearSuccess || clearNeutral)
         }
         var text = document.createElement('span');
         text.innerText = 'Clear Success';
         btn.appendChild(text);
         item.parentElement.appendChild(btn);
         const statusDescription = document.querySelector('.mergeability-details > .branch-action-item > div > .status-meta');
-        statusDescription.innerText = statusDescription.innerText.length > 75 ? `${statusDescription.innerText.substring(0,70)}...` : statusDescription.innerText;
+        statusDescription.innerText = statusDescription.innerText.length > 75 ? `${statusDescription.innerText.substring(0, 70)}...` : statusDescription.innerText;
 
     }
 
     const init = () => {
-        if(location.href.includes('pull')) {
+        if (location.href.includes('pull')) {
             var item = Array.from(document.getElementsByClassName('js-details-target btn-link float-right')).find(el => el.textContent.includes('Hide all checks'));
             var isBtnExists = Array.from(document.getElementsByClassName('btn-link float-right')).find(el => el.textContent.includes('Clear Success'));
-            if(item && !isBtnExists) {
+            if (item && !isBtnExists) {
                 runCode();
             }
         }
     };
     init();
     document.addEventListener("ghmo:container", init);
-    document.addEventListener("gh:actions", () => {
-        init();
-    });
+    document.addEventListener("gh:actions", init);
+
 })();
