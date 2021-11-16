@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Refresh bors on update
 // @namespace    bors
-// @version      0.1
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*

@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         GH PR whitespcae filter
 // @namespace    github
-// @version      0.1
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
 // ==/UserScript==
