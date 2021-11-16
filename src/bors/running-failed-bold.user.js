@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bors Running + Failed Bold
 // @namespace    bors
-// @version      0.3.1
+// @version      0.3.2
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
