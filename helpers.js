@@ -2,7 +2,8 @@
 
 const bindOnLoad = (func) => {
     document.addEventListener('pjax:success', func);
-    document.addEventListener('pjax:end', func)
+    document.addEventListener('pjax:end', func);
+    document.addEventListener('hashchange', func);
     window.addEventListener("DOMContentLoaded", func);
     func();
 }
