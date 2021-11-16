@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         Refresh bors on update
-// @namespace    http://tampermonkey.net/
+// @namespace    bors
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
-// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
-// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
+// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
 // ==/UserScript==
 
 (function () {
@@ -22,5 +22,5 @@
             }
         }
     }
-    bindOnElement('alert', init);
+    $('alert').bind('change', init);
 })();

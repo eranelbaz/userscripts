@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Hide events in github (refine github)
-// @namespace    http://tampermonkey.net/
+// @namespace    github
 // @version      0.1
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutations.js
-// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/hide-events-refine-github.user.js
-// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/hide-events-refine-github.user.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/hide-events-refine-github.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/hide-events-refine-github.user.js
 // ==/UserScript==
 (function() {
     'use strict';

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Trello Quick link
-// @namespace    http://tampermonkey.net/
+// @namespace    github
 // @version      0.1
 // @author       You
 // @include      https://github.com/*

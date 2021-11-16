@@ -1,14 +1,13 @@
 // ==UserScript==
 // @name         Bors Running + Failed Bold
-// @namespace    http://tampermonkey.net/
+// @namespace    bors
 // @version      0.1
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
-// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
-// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/running-failed-bold.user.js
 // ==/UserScript==
 
 (function () {
@@ -33,5 +32,5 @@
             });
         }
     };
-    bindOnLoad(init);
+    init();
 })();

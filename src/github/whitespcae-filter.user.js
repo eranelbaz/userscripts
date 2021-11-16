@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         GH PR whitespcae filter
-// @namespace    http://tampermonkey.net/
+// @namespace    github
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
@@ -8,8 +8,8 @@
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/src/mutations.js
-// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
-// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/whitespcae-filter.user.js
 // ==/UserScript==
 
 (function() {
