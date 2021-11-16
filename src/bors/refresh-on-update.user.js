@@ -8,8 +8,8 @@
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
-// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
-// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/refresh-on-update.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/refresh-on-update.user.js
 // ==/UserScript==
 
 (function () {
