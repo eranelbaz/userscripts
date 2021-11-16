@@ -1,3 +1,5 @@
+"use strict";
+
 const bindOnLoad = (func) => {
     document.addEventListener('pjax:success', func);
     document.addEventListener('pjax:end', func)
