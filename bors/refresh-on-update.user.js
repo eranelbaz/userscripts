@@ -7,17 +7,20 @@
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
+// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
+// @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
+// @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/bors/refresh-on-update.user.js
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
-    setInterval(() => {
-        if(location.href.includes('batches') || location.href.includes('repositories/4')) {
-            const isHidden = document.getElementsByClassName('alert js--closable')[0].hidden;
-            if(!isHidden) {
+    const init = ({element}) => {
+        if (location.href.includes('batches') || location.href.includes('repositories/4')) {
+            const isHidden = element.hidden;
+            if (!isHidden) {
                 location.reload();
             }
         }
-    }, 500);
-    // Your code here...
+    }
+    bindForElementChange('alert', init);
 })();
