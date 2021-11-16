@@ -6,7 +6,7 @@
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
-// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/main/helpers.js
+// @require     https://raw.githubusercontent.com/eranelbaz/userscripts/fix-trello-in-github/helpers.js
 // @updateURL   https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/load-all.user.js
 // @downloadURL https://raw.githubusercontent.com/eranelbaz/userscripts/main/github/load-all.user.js
 // ==/UserScript==
