@@ -5,7 +5,7 @@
 // @description  Add clear successful button on gh actions
 // @author       You
 // @include      https://github.com/*
-// @icon         https://github.githubassets.com/favicons/favicon.png
+// @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js

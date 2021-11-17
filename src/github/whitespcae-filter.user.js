@@ -5,7 +5,7 @@
 // @description  try to take over the world!
 // @author       You
 // @include      https://github.com/*
-// @icon         https://github.githubassets.com/favicons/favicon.png
+// @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/whitespcae-filter.user.js

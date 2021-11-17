@@ -4,7 +4,7 @@
 // @version      0.3.4
 // @author       You
 // @include      https://github.com/*
-// @icon         https://github.githubassets.com/favicons/favicon.png
+// @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/hide-events-refine-github.user.js
