@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.4
+// @version      0.3.5
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
@@ -15,13 +15,16 @@
     'use strict';
 
     const init = () => {
-        const trelloLink = Array.from(document.getElementsByTagName('a')).find(el => el.href.includes('trello'));
+        const trelloLink = document.querySelector('.comment-body > p > a:not([target="_blank"])');
         const prTitle = document.getElementsByClassName('gh-header-title')[0];
-        if (trelloLink) {
+        const isElementAlreadyExists = document.querySelector('#trello-link');
+        if (trelloLink && !isElementAlreadyExists) {
             var titleLink = document.createElement('a');
             titleLink.href = trelloLink.href;
-            prTitle.appendChild(titleLink);
+            titleLink.id = 'trello-link';
+            titleLink.target = '_blank';
             titleLink.text = 'Trello';
+            prTitle.appendChild(titleLink);
         }
     }
 
