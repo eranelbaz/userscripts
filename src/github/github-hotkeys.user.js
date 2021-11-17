@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Set Github hotkeys
 // @namespace    github
-// @version      0.3.4
+// @version      0.3.5
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
 // ==/UserScript==
@@ -14,7 +15,7 @@
     'use strict';
 
     const bindPrTabs = () => {
-        if (location.href.includes('pull')) {
+        if (isPR(location.href)) {
             Array.from(document.querySelectorAll('.tabnav-tabs > a')).forEach((tab, index) => {
                 tab.dataset.hotkey = `g ${index + 1}`
             });
@@ -22,7 +23,7 @@
     }
 
     const bindPullRequests = () => {
-        if (location.href.includes('pulls')) {
+        if (isPRList(location.href)) {
             Array.from(document.querySelectorAll('[data-hovercard-type="pull_request"]')).forEach((tab, index) => {
                 tab.dataset.hotkey = `g ${index}`
             });
@@ -34,7 +35,7 @@
             e = e || window.event;
             var charCode = e.which || e.keyCode;
             if (charCode === 66) {
-                if (document.activeElement.nodeName !== 'TEXTAREA' && document.activeElement.nodeName !== 'INPUT') {
+                if (isPR(location.href) && document.activeElement.nodeName !== 'TEXTAREA' && document.activeElement.nodeName !== 'INPUT') {
                     document.getElementsByClassName('js-copy-branch')[0].click();
                 }
             }
