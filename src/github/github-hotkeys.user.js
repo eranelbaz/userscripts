@@ -5,7 +5,7 @@
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
-// @icon         https://www.google.com/s2/favicons?domain=github.com
+// @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
