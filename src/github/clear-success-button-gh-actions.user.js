@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Add clear successful button on gh actions
 // @namespace    github
-// @version      0.3.4
+// @version      0.3.5
 // @description  Add clear successful button on gh actions
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
@@ -54,7 +55,7 @@
     }
 
     const init = () => {
-        if (location.href.includes('pull')) {
+        if (isPR(location.href)) {
             var item = Array.from(document.getElementsByClassName('js-details-target btn-link float-right')).find(el => el.textContent.includes('Hide all checks'));
             var isBtnExists = Array.from(document.getElementsByClassName('btn-link float-right')).find(el => el.textContent.includes('Clear Success'));
             if (item && !isBtnExists) {
