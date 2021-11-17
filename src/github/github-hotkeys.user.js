@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Set Github hotkeys
 // @namespace    github
-// @version      0.3.6
+// @version      0.3.7
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
@@ -24,12 +24,17 @@
 
     const bindPullRequests = () => {
         if (isPRList(location.href)) {
-            Array.from(document.querySelectorAll('[data-hovercard-type="pull_request"]')).forEach((tab, index) => {
-                tab.dataset.hotkey = `g ${index}`
-                var prListNumber = document.createElement('span');
-                prListNumber.textContent = `${index}`;
-                const prStatus = Array.from(tab.parentNode.children).find(x =>x.matches('.d-inline-block'))
-                tab.parentNode.insertBefore(prListNumber, prStatus.nextSibling);
+            Array.from(document.querySelectorAll('[data-hovercard-type="pull_request"]')).forEach((line, index) => {
+                line.dataset.hotkey = `g ${index}`
+                let prLine = line.parentNode;
+                const existingSpan = Array.from(prLine.children).find(x => x.matches('.quick-link-span'))
+                if (!existingSpan) {
+                    const prListNumber = document.createElement('span');
+                    prListNumber.textContent = `${index}`;
+                    prListNumber.classList.add('quick-link-span')
+                    const prStatus = Array.from(prLine.children).find(x => x.matches('.d-inline-block'))
+                    prLine.insertBefore(prListNumber, prStatus.nextSibling);
+                }
             });
         }
     }
