@@ -15,7 +15,7 @@
     'use strict';
 
     const init = () => {
-        const trelloLink = document.querySelector('.comment-body > p > a:not([target="_blank"])');
+        const trelloLink = document.querySelector('[href*="trello"]');
         const prTitle = document.getElementsByClassName('gh-header-title')[0];
         const isElementAlreadyExists = document.querySelector('#trello-link');
         if (trelloLink && !isElementAlreadyExists) {
