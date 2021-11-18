@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         GH PR whitespcae filter
 // @namespace    github
-// @version      0.3.5
+// @version      0.3.6
 // @description  try to take over the world!
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/whitespcae-filter.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/whitespcae-filter.user.js
 // ==/UserScript==

@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.5
+// @version      0.3.6
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/trello-quick-link.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/trello-quick-link.user.js
 // ==/UserScript==

@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Hide events in github (refine github)
 // @namespace    github
-// @version      0.3.5
+// @version      0.3.6
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
-// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/hide-events-refine-github.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/hide-events-refine-github.user.js
