@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.6
+// @version      0.3.7
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
@@ -15,7 +15,7 @@
     'use strict';
 
     const init = () => {
-        const trelloLink = document.querySelector('.comment-body > p > a:not([target="_blank"])');
+        const trelloLink = document.querySelector('[href*="trello"]');
         const prTitle = document.getElementsByClassName('gh-header-title')[0];
         const isElementAlreadyExists = document.querySelector('#trello-link');
         if (trelloLink && !isElementAlreadyExists) {
