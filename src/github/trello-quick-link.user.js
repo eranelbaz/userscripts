@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Trello Quick link
 // @namespace    github
-// @version      0.3.6
+// @version      0.3.7
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
