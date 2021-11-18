@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Refresh bors on update
 // @namespace    bors
-// @version      0.3.5
+// @version      0.3.6
 // @description  try to take over the world!
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
 // @icon         https://bors-env0.herokuapp.com/images/favicon-32x32.png
 // @grant        none
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/refresh-on-update.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/bors/refresh-on-update.user.js
 // ==/UserScript==
@@ -22,5 +22,12 @@
             }
         }
     }
+
+    bindForElementChange({
+        'js--on-project-ping': {
+            type: 'id',
+            eventName: 'bors:alert'
+        }
+    })
     document.addEventListener("bors:alert", init);
 })();
