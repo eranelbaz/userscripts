@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Set Github hotkeys
 // @namespace    github
-// @version      0.3.7
+// @version      0.3.8
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
@@ -22,6 +22,22 @@
         }
     }
 
+    const bindNotifications = () => {
+        if (isNotifications(location.href)) {
+            Array.from(document.querySelectorAll('.notification-list-item-link')).forEach((line, index) => {
+                line.dataset.hotkey = `g ${index}`
+                let prLine = line.parentNode;
+                const existingSpan = Array.from(prLine.children).find(x => x.matches('.quick-link-span'))
+                if (!existingSpan) {
+                    const prListNumber = document.createElement('span');
+                    prListNumber.textContent = `${index}`;
+                    prListNumber.classList.add('quick-link-span')
+                    prLine.querySelector('.d-flex > .m-0').appendChild(prListNumber);
+                }
+            });
+        }
+    }
+
     const bindPullRequests = () => {
         if (isPRList(location.href)) {
             Array.from(document.querySelectorAll('[data-hovercard-type="pull_request"]')).forEach((line, index) => {
@@ -32,7 +48,7 @@
                     const prListNumber = document.createElement('span');
                     prListNumber.textContent = `${index}`;
                     prListNumber.classList.add('quick-link-span')
-                    const prStatus = Array.from(prLine.children).find(x => x.matches('.d-inline-block'))
+                    const prStatus = prLine.querySelector('.d-inline-block');
                     prLine.insertBefore(prListNumber, prStatus.nextSibling);
                 }
             });
@@ -53,6 +69,7 @@
     document.addEventListener("ghmo:container", () => {
         bindPrTabs();
         bindPullRequests();
+        bindNotifications();
     });
 
     bindCopyBranchName();
