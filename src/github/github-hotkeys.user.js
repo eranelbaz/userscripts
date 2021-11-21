@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Set Github hotkeys
 // @namespace    github
-// @version      0.3.8
+// @version      0.3.8.1
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*
@@ -15,7 +15,7 @@
     'use strict';
 
     const bindPrTabs = () => {
-        if (isPR(location.href)) {
+        if (isPR()) {
             Array.from(document.querySelectorAll('.tabnav-tabs > a')).forEach((tab, index) => {
                 tab.dataset.hotkey = `g ${index + 1}`
             });
@@ -23,7 +23,7 @@
     }
 
     const bindNotifications = () => {
-        if (isNotifications(location.href)) {
+        if (isNotifications()) {
             Array.from(document.querySelectorAll('.notification-list-item-link')).forEach((line, index) => {
                 line.dataset.hotkey = `g ${index}`
                 let prLine = line.parentNode;
@@ -39,7 +39,7 @@
     }
 
     const bindPullRequests = () => {
-        if (isPRList(location.href)) {
+        if (isPRList()) {
             Array.from(document.querySelectorAll('[data-hovercard-type="pull_request"]')).forEach((line, index) => {
                 line.dataset.hotkey = `g ${index}`
                 let prLine = line.parentNode;
@@ -66,12 +66,15 @@
             }
         };
     }
-    document.addEventListener("ghmo:container", () => {
+
+    const init = () => {
         bindPrTabs();
         bindPullRequests();
         bindNotifications();
-    });
+        bindCopyBranchName();
+    }
 
-    bindCopyBranchName();
+    document.addEventListener("ghmo:container", init);
+    init();
 })
 ();
