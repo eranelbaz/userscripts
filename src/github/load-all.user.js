@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fetch all in github prs
 // @namespace    github
-// @version      0.3.5
+// @version      0.3.6
 // @author       You
 // @include      https://github.com/*
 // @icon         https://github.githubassets.com/pinned-octocat.svg
