@@ -7,6 +7,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/init.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/trello-quick-link.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/trello-quick-link.user.js
 // ==/UserScript==
@@ -28,7 +29,6 @@
         }
     }
 
-    init();
-    document.addEventListener("ghmo:comments", init);
+    bindInit(["ghmo:container"], init)
 
 })();

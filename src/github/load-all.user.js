@@ -7,6 +7,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/init.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/load-all.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/load-all.user.js
 // ==/UserScript==
@@ -30,9 +31,5 @@
         setInterval(() => runLogic(logicInterval), 2000);
     }
 
-
-    document.addEventListener("ghmo:container", init);
-    document.addEventListener("ghmo:comments", () => {
-        setTimeout(init, 500)
-    });
+    bindInit(["ghmo:container","ghmo:comments"], init)
 })();

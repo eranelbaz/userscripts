@@ -9,6 +9,7 @@
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/init.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/helpers.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/clear-success-button-gh-actions.user.js
@@ -71,7 +72,6 @@
 
         }
     })
-    document.addEventListener("ghmo:container", init);
-    document.addEventListener("gh:actions", init);
 
+    bindInit(["ghmo:container","gh:actions"], init)
 })();
