@@ -15,9 +15,8 @@
     'use strict';
 
     const init  = () => {
-        if(isPR(location.href)) {
-            var label = Array.from(document.getElementsByClassName('select-menu-item-text'))
-            .find(el => el.textContent === 'Hide events');
+        if(isPR()) {
+            var label = document.querySelector('[data-value="hideEvents"]');
             if(label) {
                 label.click();
             }
@@ -26,4 +25,8 @@
 
     document.addEventListener("ghmo:container", init);
     document.addEventListener("ghmo:comments", () => setTimeout(init, 500));
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => init);
+    }
+    setTimeout(init, 500);
 })();

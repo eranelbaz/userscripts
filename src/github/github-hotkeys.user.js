@@ -75,6 +75,6 @@
     }
 
     document.addEventListener("ghmo:container", init);
-    init();
+    setTimeout(init, 500);
 })
 ();
