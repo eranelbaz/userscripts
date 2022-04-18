@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GH PR whitespcae filter
 // @namespace    github
-// @version      0.3.6
+// @version      0.3.7
 // @description  try to take over the world!
 // @author       You
 // @include      https://github.com/*

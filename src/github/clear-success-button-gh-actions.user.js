@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Add clear successful button on gh actions
 // @namespace    github
-// @version      0.3.7
+// @version      0.3.8
 // @description  Add clear successful button on gh actions
 // @author       You
 // @include      https://github.com/*
