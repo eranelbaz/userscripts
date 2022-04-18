@@ -8,6 +8,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/init.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/github-hotkeys.user.js
 // ==/UserScript==
@@ -74,7 +75,6 @@
         bindCopyBranchName();
     }
 
-    document.addEventListener("ghmo:container", init);
-    init();
+    bindInit(["ghmo:container"], init)
 })
 ();

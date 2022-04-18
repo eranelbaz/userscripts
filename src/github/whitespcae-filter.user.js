@@ -8,6 +8,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @grant        none
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/url-detection.js
+// @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/init.js
 // @require      https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/mutations.js
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/whitespcae-filter.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/github/whitespcae-filter.user.js
@@ -23,5 +24,5 @@
             }
         }
     }
-    document.addEventListener("ghmo:container", init);
+    bindInit(["ghmo:container"], init)
 })();
