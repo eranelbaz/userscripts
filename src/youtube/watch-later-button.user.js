@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube - Add Watch Later Button
 // @description  Bring back the watch later button on youtube homepage
-// @version      2.0.1
+// @version      2.1.0
 // @match        https://www.youtube.com
 // @match        https://www.youtube.com/*
 // @require      https://greasyfork.org/scripts/419640-onelementready/code/onElementReady.js?version=887637
