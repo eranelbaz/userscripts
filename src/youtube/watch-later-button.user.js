@@ -12,7 +12,11 @@
 
 const WATCH_LATER_SVG = 'M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M12,3c-4.96,0-9,4.04-9,9s4.04,9,9,9s9-4.04,9-9S16.96,3,12,3 M12,2c5.52,0,10,4.48,10,10s-4.48,10-10,10S2,17.52,2,12S6.48,2,12,2L12,2z';
 const handeled = [];
-
+const homePage = `#dismissible > #details > #menu > ytd-menu-renderer`;
+const videoPage = `#actions > #actions-inner > #menu`;
+const fixKebabSvg = '.add-to-watch-later-button > yt-icon-button > button > yt-icon > yt-icon-shape > icon-shape > div > svg > path';
+const videoDropDown = '#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item';
+const videoPageModal = '.ytd-menu-service-item-renderer';
 const addButtonHomePage = (menu) => {
   const video = menu.parentElement;
   if (!handeled.includes(video)) {
@@ -30,8 +34,6 @@ const addButtonHomePage = (menu) => {
 };
 
 
-
-
 const addButtonVideoPage = (menu) => {
   console.log(menu);
   const menuRenderer = document.createElement('ytd-menu-renderer');
@@ -44,20 +46,15 @@ const addButtonVideoPage = (menu) => {
   };
 
   menuRenderer.onclick = () => {
-    const saveButton = document.querySelector('[aria-label="Save to playlist"]')
+    const saveButton = document.querySelector('[aria-label="Save to playlist"]');
+    console.log({ saveButton });
     if (saveButton) {
       saveButton.click();
       waitAndSaveModal();
     } else {
       menu.querySelector('#button-shape > button > yt-touch-feedback-shape').click();
 
-      onElementReady('.ytd-menu-service-item-renderer', { findOnce: true }, (subMenu) => {
-          if (subMenu.innerHTML.includes('Save')) {
-            subMenu.click();
-            waitAndSaveModal();
-          }
-        }
-      );
+
     }
 
 
@@ -70,12 +67,20 @@ const fixSvg = (btn) => {
 };
 
 console.log('add watch later button loaded');
-onElementReady(`#dismissible > #details > #menu > ytd-menu-renderer`, { findOnce: true }, addButtonHomePage);
-onElementReady(`#actions > #actions-inner > #menu`, { findOnce: true }, addButtonVideoPage);
-onElementReady('.add-to-watch-later-button > yt-icon-button > button > yt-icon > yt-icon-shape > icon-shape > div > svg > path', { findOnce: true }, fixSvg);
-onElementReady('#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item', { findOnce: false }, (addToWatchLater) => {
+
+onElementReady(homePage, { findOnce: true }, addButtonHomePage);
+onElementReady(videoPage, { findOnce: true }, addButtonVideoPage);
+onElementReady(fixKebabSvg, { findOnce: true }, fixSvg);
+onElementReady(videoDropDown, { findOnce: false }, (addToWatchLater) => {
   if (!handeled.includes(addToWatchLater)) {
     addToWatchLater.click();
     handeled.push(addToWatchLater);
   }
 });
+onElementReady(videoPageModal, { findOnce: true }, (subMenu) => {
+    if (subMenu.innerHTML.includes('Save')) {
+      subMenu.click();
+      waitAndSaveModal();
+    }
+  }
+);
