@@ -45,7 +45,6 @@ const addButtonVideoPage = (menu) => {
 
   menuRenderer.onclick = () => {
     const saveButton = document.querySelector('[aria-label="Save to playlist"]')
-    console.log({saveButton});
     if (saveButton) {
       saveButton.click();
       waitAndSaveModal();
