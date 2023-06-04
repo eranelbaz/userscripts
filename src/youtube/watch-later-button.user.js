@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         YouTube - Add Watch Later Button
 // @description  Bring back the watch later button on youtube homepage
-// @version      2.1.0
-// @match        https://www.youtube.com
-// @match        https://www.youtube.com/*
+// @version      2.2.0
+// @match        https://www.youtube.com/
+// @match        https://www.youtube.com/watch?v=*
 // @require      https://greasyfork.org/scripts/419640-onelementready/code/onElementReady.js?version=887637
 // @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/youtube/watch-later-button.user.js
 // @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/youtube/watch-later-button.user.js
@@ -12,6 +12,7 @@
 
 const WATCH_LATER_SVG = 'M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M12,3c-4.96,0-9,4.04-9,9s4.04,9,9,9s9-4.04,9-9S16.96,3,12,3 M12,2c5.52,0,10,4.48,10,10s-4.48,10-10,10S2,17.52,2,12S6.48,2,12,2L12,2z';
 const handeled = [];
+
 const addButtonHomePage = (menu) => {
   const video = menu.parentElement;
   if (!handeled.includes(video)) {
@@ -20,19 +21,16 @@ const addButtonHomePage = (menu) => {
     menuRenderer.setAttribute('class', 'style-scope ytd-rich-grid-media add-to-watch-later-button');
 
     menuRenderer.onclick = () => {
-      video.querySelector('#button > yt-icon').click();
-      onElementReady('#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item', { findOnce: true }, (addToWatchLater) => {
-        addToWatchLater.click();
-        video.querySelector('#button > yt-icon').click();
-      });
+      const homePageKebab = '#button > yt-icon';
+      video.querySelector(homePageKebab).click();
     };
     video.appendChild(menuRenderer);
     Array.from(video.querySelectorAll('ytd-menu-renderer')).forEach(menu => menu.style.position = 'static');
-
-    setTimeout(() => menuRenderer.querySelector('#button > yt-icon > svg > g > path').setAttribute('d', WATCH_LATER_SVG), 500);
-
   }
 };
+
+
+
 
 const addButtonVideoPage = (menu) => {
   console.log(menu);
@@ -46,8 +44,9 @@ const addButtonVideoPage = (menu) => {
   };
 
   menuRenderer.onclick = () => {
-    const saveButton = document.querySelector('#flexible-item-buttons > ytd-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div');
-    if (saveButton && saveButton.innerHTML.includes('Save')) {
+    const saveButton = document.querySelector('[aria-label="Save to playlist"]')
+    console.log({saveButton});
+    if (saveButton) {
       saveButton.click();
       waitAndSaveModal();
     } else {
@@ -75,3 +74,9 @@ console.log('add watch later button loaded');
 onElementReady(`#dismissible > #details > #menu > ytd-menu-renderer`, { findOnce: true }, addButtonHomePage);
 onElementReady(`#actions > #actions-inner > #menu`, { findOnce: true }, addButtonVideoPage);
 onElementReady('.add-to-watch-later-button > yt-icon-button > button > yt-icon > yt-icon-shape > icon-shape > div > svg > path', { findOnce: true }, fixSvg);
+onElementReady('#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item', { findOnce: false }, (addToWatchLater) => {
+  if (!handeled.includes(addToWatchLater)) {
+    addToWatchLater.click();
+    handeled.push(addToWatchLater);
+  }
+});
