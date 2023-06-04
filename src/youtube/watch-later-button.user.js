@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube - Add Watch Later Button
 // @description  Bring back the watch later button on youtube homepage
-// @version      2.3.0
+// @version      2.4.0
 // @match        https://www.youtube.com/
 // @match        https://www.youtube.com/watch?v=*
 // @require      https://greasyfork.org/scripts/419640-onelementready/code/onElementReady.js?version=887637
@@ -14,19 +14,20 @@ const WATCH_LATER_SVG = 'M14.97,16.95L10,13.87V7h2v5.76l4.03,2.49L14.97,16.95z M
 const videoDropDown = '#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item';
 const videoPageModal = '.ytd-menu-service-item-renderer';
 let isOpen = false;
-const addButtonHomePage = (menu) => {
+
+const addButtonHomePagee = (menuContainer) => {
   isOpen = false;
-  const video = menu.parentElement;
+    console.log(menuContainer);
   const menuRenderer = document.createElement('ytd-menu-renderer');
   menuRenderer.setAttribute('class', 'style-scope ytd-rich-grid-media add-to-watch-later-button');
   menuRenderer.style.position = 'abosulte';
   menuRenderer.style.top = '4em';
+  menuRenderer.style.right = '0';
   menuRenderer.onclick = () => {
     isOpen = true;
-    video.querySelector('#button > yt-icon').click();
+    menuContainer.parentElement.querySelector('#button > yt-icon').click();
   };
-  video.appendChild(menuRenderer);
-
+  menuContainer.appendChild(menuRenderer);
 };
 
 
@@ -46,14 +47,13 @@ const fixSvg = (svg) => {
 };
 
 console.log('add watch later button loaded');
-onElementReady(`div#menu.style-scope.ytd-rich-grid-media`, { findOnce: true }, addButtonHomePage);
+onElementReady(`div#menu.style-scope.ytd-rich-grid-media > ytd-menu-renderer:not(.add-to-watch-later-button)`, { findOnce: true }, addButtonHomePagee);
 onElementReady('.add-to-watch-later-button > yt-icon-button > button > yt-icon > yt-icon-shape > icon-shape > div > svg > path', { findOnce: true }, fixSvg);
 onElementReady('#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-paper-item > yt-formatted-string', { findOnce: false }, (addToWatchLater) => {
   if (isOpen) {
     addToWatchLater.click();
     isOpen = false;
   }
-
 });
 // Specific video page
 onElementReady(`#actions > #actions-inner > #menu`, { findOnce: true }, addButtonVideoPage);
