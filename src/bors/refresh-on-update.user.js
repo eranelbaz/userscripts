@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Refresh bors on update
 // @namespace    bors
-// @version      0.3.6
+// @version      0.4.0
 // @description  try to take over the world!
 // @author       You
 // @include      https://bors-env0.herokuapp.com/*
@@ -14,20 +14,10 @@
 
 (function () {
     'use strict';
-    const init = ({element}) => {
-        if (location.href.includes('batches') || location.href.includes('repositories/4')) {
-            const isHidden = element.hidden;
-            if (!isHidden) {
-                location.reload();
-            }
+    setInterval(() => {
+        const isHidden = document.querySelector("#js--on-project-ping").hidden
+        if (!isHidden) {
+            location.reload();
         }
-    }
-
-    bindForElementChange({
-        'js--on-project-ping': {
-            type: 'id',
-            eventName: 'bors:alert'
-        }
-    })
-    document.addEventListener("bors:alert", init);
+    }, 1000);
 })();
