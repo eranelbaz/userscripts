@@ -13,7 +13,7 @@
 
 // ==/UserScript==
 
-const init = () => {
+const hideEvents = () => {
   if (isPR()) {
     var label = document.querySelector('[data-value="hideEvents"]');
     if (label) {
@@ -22,5 +22,12 @@ const init = () => {
   }
 };
 
+const hideSeed = (element) => {
+    if(element.innerHTML.includes('seed')) {
+        element.remove();
+    }
+}
 
-onElementReady(`#rgh-conversation-activity-filter-select-menu`, { findOnce: true }, init);
+
+onElementReady(`#rgh-conversation-activity-filter-select-menu`, { findOnce: true }, hideEvents);
+onElementReady(`.js-timeline-item`, { findOnce: true }, hideSeed);
