@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube - Add Watch Later Button
 // @description  Bring back the watch later button on youtube homepage
-// @version      2.2.1
+// @version      2.4.1
 // @match        https://www.youtube.com/
 // @match        https://www.youtube.com/watch?v=*
 // @require      https://greasyfork.org/scripts/419640-onelementready/code/onElementReady.js?version=887637
@@ -17,7 +17,6 @@ let isOpen = false;
 
 const addButtonHomePagee = (menuContainer) => {
   isOpen = false;
-    console.log(menuContainer);
   const menuRenderer = document.createElement('ytd-menu-renderer');
   menuRenderer.setAttribute('class', 'style-scope ytd-rich-grid-media add-to-watch-later-button');
   menuRenderer.style.position = 'abosulte';
@@ -56,7 +55,7 @@ onElementReady('#items > ytd-menu-service-item-renderer:nth-child(2) > tp-yt-pap
   }
 });
 // Specific video page
-onElementReady(`#actions > #actions-inner > #menu`, { findOnce: true }, addButtonVideoPage);
+onElementReady(`#actions > #actions-inner > #menu`, { findOnce: true }, (element) => (setTimeout(addButtonVideoPage(element), 500)));
 onElementReady('div#header.style-scope.ytd-add-to-playlist-renderer', { findOnce: false }, (modal) => {
   if (isOpen) {
     document.querySelector('[aria-label="Watch later Private"]').click();
