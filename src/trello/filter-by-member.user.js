@@ -7,7 +7,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=trello.com
 // @grant        none
 // @require      https://greasyfork.org/scripts/419640-onelementready/code/onElementReady.js?version=887637
-
+// @updateURL    https://github.com/eranelbaz/userscripts/raw/main/src/trello/filter-by-member.user.js
+// @downloadURL  https://github.com/eranelbaz/userscripts/raw/main/src/trello/filter-by-member.user.js
 // ==/UserScript==
 
 const addFilter = (element) => {
