@@ -6,6 +6,8 @@
 // @match        https://trello.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=trello.com
 // @grant        none
+// @updateURL    https://github.com/eranelbaz/userscripts/raw/main/src/trello/hide-empty-lists.user.js
+// @downloadURL  https://github.com/eranelbaz/userscripts/raw/main/src/trello/hide-empty-lists.user.js
 // ==/UserScript==
 
 (function() {
