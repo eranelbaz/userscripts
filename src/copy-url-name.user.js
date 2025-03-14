@@ -4,8 +4,10 @@
 // @version      1.0
 // @description  Copy a hyperlink with the document title to the clipboard using Ctrl+Shift+C
 // @author       Your Name
-// @match        *://*/*  // Match all websites
+// @match        *://*/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/copy-url-name.user.js
+// @downloadURL  https://raw.githubusercontent.com/eranelbaz/userscripts/main/src/copy-url-name.user.js
 // ==/UserScript==
 
 (function() {
@@ -34,7 +36,7 @@
     }
 
     document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && event.shiftKey && event.code === 'KeyC') {
+        if (event.metaKey && event.shiftKey && event.code === 'KeyC') {
             event.preventDefault();
             createLink();
         }
